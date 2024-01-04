@@ -8,6 +8,8 @@ import { AccountService } from '../../services/account/account.service';
 })
 export class AuthenticationComponent {
 
+  public toggleLogin: boolean = false;
+
   constructor(private accountService: AccountService) { } 
 
   public registerAccount(registeredData: any) {
@@ -28,5 +30,18 @@ export class AuthenticationComponent {
       this.accountService.registerAccountAPI(data);
   }
 
+  public loginAccount(loginData: any) {
+    if(!loginData) {
+      return;
+    }
+    if(!loginData.email || !loginData.password) {
+      return;
+    }
+    let data = {
+      email: loginData.email,
+      password: loginData.password
+    }
+    this.accountService.loginAccountAPI(data);
+  }
 
 }

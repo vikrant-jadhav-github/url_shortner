@@ -1,17 +1,19 @@
 <div class="authentication">
 
-    <div class="register">
+    <div *ngIf="!toggleLogin" class="register">
+        <h1>Register</h1>
         <form method="POST" #registerForm="ngForm" (ngSubmit)="registerAccount(registerForm.value)">
             <input type="text" ngModel name="name" placeholder="Enter Full Name">
             <input type="email" ngModel name="email" placeholder="Enter Email">
             <input type="password" ngModel name="password" placeholder="Enter Password">
             <input type="password" ngModel name="confirmPassword" placeholder="Confirm Password">
-            <input type="submit" value="Register">
+            <button type="submit">Register</button>
         </form>
     </div>
 
-    <div class="login">
-        <form method="POST">
+    <div *ngIf="toggleLogin" class="login">
+        <h1>Login</h1>
+        <form method="POST" #loginForm="ngForm" (ngSubmit)="loginAccount(loginForm.value)">
             <input type="email" ngModel name="email" placeholder="Enter Email">
             <input type="password" ngModel name="password" placeholder="Enter Password">
             <input type="submit" value="Login">

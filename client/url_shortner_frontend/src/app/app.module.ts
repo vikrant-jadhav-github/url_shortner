@@ -7,11 +7,13 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { ToastrModule } from 'ngx-toastr';
 import { AuthenticationComponent } from './components/authentication/authentication.component';
+import { ShortenurlComponent } from './components/shortenurl/shortenurl.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    AuthenticationComponent
+    AuthenticationComponent,
+    ShortenurlComponent
   ],
   imports: [
     BrowserModule,

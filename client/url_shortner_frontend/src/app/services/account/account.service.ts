@@ -16,8 +16,8 @@ export class AccountService {
 
   constructor(private httpClient: HttpClient, private apiService: ApiService) { }
 
-  public registerAccountAPI(data: Object) {
-    this.httpClient.post(this.apiService.accountRegisterEndpoint, data).subscribe({
+  public registerAccountAPI(registeredData: Object) {
+    this.httpClient.post(this.apiService.accountRegisterEndpoint, registeredData).subscribe({
       next: (response) => {
         console.warn(response);
       },

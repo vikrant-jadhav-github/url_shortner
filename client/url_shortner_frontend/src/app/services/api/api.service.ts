@@ -5,5 +5,9 @@ import { Injectable } from '@angular/core';
 })
 export class ApiService {
 
+  public accountRegisterEndpoint: string = "http://localhost:8000/api/v1/accounts/register/"
+  public accountLoginEndpoint: string = "http://localhost:8000/api/v1/accounts/login/"
+  public accountProfileEndpoint: string = "http://localhost:8000/api/v1/accounts/profile/"
+
   constructor() { }
 }

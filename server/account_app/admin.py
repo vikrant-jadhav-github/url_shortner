@@ -6,3 +6,4 @@ class UserAdmin(admin.ModelAdmin):
     class Meta:
         model = User
         fields = '__all__'
+

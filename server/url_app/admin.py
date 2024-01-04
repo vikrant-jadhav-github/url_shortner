@@ -1,3 +1,8 @@
 from django.contrib import admin
+from .models import UrlModel
 
-# Register your models here.
+@admin.register(UrlModel)
+class UrlShortnerAdmin(admin.ModelAdmin):
+    class Meta:
+        model = UrlModel
+        fields = '__all__'

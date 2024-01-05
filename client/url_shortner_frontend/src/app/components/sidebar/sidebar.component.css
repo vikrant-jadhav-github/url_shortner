@@ -13,10 +13,7 @@
     flex-direction: column;
     align-items: center;
     gap: 1rem;
-}
-
-img{
-    width: 50%;
+    border-bottom: 2px solid var(--border-color);
 }
 
 .links{

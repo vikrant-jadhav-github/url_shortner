@@ -15,13 +15,14 @@
 }
 
 body{
+    font-family: 'Roboto', sans-serif;
     color: white;
 }
 
 a{
     text-decoration: none;
-    font-size: large;
     color: white;
+    font-size: 1.5rem;
 }
 
 a:hover{
@@ -34,6 +35,7 @@ button{
     outline: none;
     color: white;
     padding: 1.5rem;
+    font-size: large;
 }
 
 button:hover{
@@ -63,4 +65,8 @@ input::placeholder{
 
 .logout:hover{
     cursor: pointer;
+}
+
+.branding h2{
+    font-size: 6.5rem;
 }

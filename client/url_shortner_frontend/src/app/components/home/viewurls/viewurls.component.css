@@ -3,7 +3,7 @@
     flex-direction: column;
     height: 100vh;
     width: 100%;
-    gap: 2rem;
+    gap: 2.5rem;
 }
 
 .viewurls h2{
@@ -14,7 +14,7 @@
     display: flex;
     flex-direction: column;
     gap: 2rem;
-    height: 80%;
+    height: 85%;
     overflow-y: scroll;
 }
 
@@ -30,6 +30,10 @@ table {
     width: 90%;
     height: 5rem;
     text-align: center;
+}
+
+table a{
+    font-size: medium;
 }
 
 tr{

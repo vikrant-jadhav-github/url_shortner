@@ -1,7 +1,7 @@
 <div class="authentication">
 
     <div *ngIf="!toggleLogin" class="register">
-        <h1>Register</h1>
+        <h1>REGISTER</h1>
         <form method="POST" #registerForm="ngForm" (ngSubmit)="registerAccount(registerForm.value)">
             <input type="text" ngModel name="name" placeholder="Enter Full Name">
             <input type="email" ngModel name="email" placeholder="Enter Email">
@@ -12,7 +12,7 @@
     </div>
 
     <div *ngIf="toggleLogin" class="login">
-        <h1>Login</h1>
+        <h1>LOGIN</h1>
         <form method="POST" #loginForm="ngForm" (ngSubmit)="loginAccount(loginForm.value)">
             <input type="email" ngModel name="email" placeholder="Enter Email">
             <input type="password" ngModel name="password" placeholder="Enter Password">

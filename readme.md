@@ -32,4 +32,4 @@
 <p>Then hit ng serve to run the server, that's it. It will run on localhost at port 4200. </p>
 
 
-<h1>CONGRATULATIONS!, Now you can explore the features </h1>
+<h1>CONGRATULATIONS! Now you can explore the features </h1>

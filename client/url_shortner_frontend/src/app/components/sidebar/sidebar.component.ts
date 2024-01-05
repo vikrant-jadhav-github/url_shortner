@@ -27,9 +27,9 @@ export class SidebarComponent implements OnInit {
   }
 
   public logout(){
-    this.accountService.logoutAPI()
     this.toggleLogin = false
     this.userData = {}
+    this.accountService.logoutAPI()
     this.toastr.success('See you again!', 'Success')
   }
 

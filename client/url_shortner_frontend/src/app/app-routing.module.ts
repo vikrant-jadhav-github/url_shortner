@@ -5,6 +5,7 @@ import { AuthenticationComponent } from './components/authentication/authenticat
 import { AboutComponent } from './components/about/about.component';
 import { HomeComponent } from './components/home/home.component';
 import { ViewurlsComponent } from './components/home/viewurls/viewurls.component';
+import { authGuard } from './guard/auth/auth.guard';
 
 const routes: Routes = [
   {
@@ -24,16 +25,19 @@ const routes: Routes = [
     component: AboutComponent,
   },
   {
-    path: 'home',
+    path: 'Home',
     component: HomeComponent,
+    canActivate: [authGuard],
   },
   {
     path: 'home/viewurls',
     component: ViewurlsComponent,
+    canActivate: [authGuard],
   },
   {
     path: 'home/about',
     component: AboutComponent,
+    canActivate: [authGuard],
   }
 ];
 

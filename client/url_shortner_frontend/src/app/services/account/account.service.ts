@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { ApiService } from '../api/api.service'; 
 import { BehaviorSubject } from 'rxjs';
 import { ToastrService } from 'ngx-toastr';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -10,19 +11,20 @@ import { ToastrService } from 'ngx-toastr';
 export class AccountService {
 
   private tokenSubject = new BehaviorSubject<String>("")
-  private token$ = this.tokenSubject.asObservable();
+  public token$ = this.tokenSubject.asObservable();
 
   private userDataSubject = new BehaviorSubject<Object>({});
-  private userData$ = this.userDataSubject.asObservable();
+  public userData$ = this.userDataSubject.asObservable();
 
-  constructor(private httpClient: HttpClient, private apiService: ApiService, private toastr: ToastrService) { }
+  constructor(private httpClient: HttpClient, private apiService: ApiService, private toastr: ToastrService, private router: Router) { }
 
   public registerAccountAPI(registeredData: Object) {
     this.httpClient.post(this.apiService.accountRegisterEndpoint, registeredData).subscribe({
       next: (response: any) => {
-        this.tokenSubject.next(response.token);
+        this.tokenSubject.next(response.token.access);
         this.userDataSubject.next(response.user);
         this.toastr.success('Account created successfully', 'Success');
+        this.router.navigate(['login/true']);
       },
       error: (error) => {
         this.toastr.error(error.error.message, 'Error');
@@ -33,14 +35,24 @@ export class AccountService {
   public loginAccountAPI(loginData: Object) {
     this.httpClient.post(this.apiService.accountLoginEndpoint, loginData).subscribe({
       next: (response: any) => {
-        this.tokenSubject.next(response.token);
+        this.tokenSubject.next(response.token.access);
         this.userDataSubject.next(response.user);
         this.toastr.success('Account logged in successfully', 'Success');
+        this.router.navigate(['home']);
       },
       error: (error) => {
+        if (error.status == 404) {
+          this.router.navigate(['register']);
+        }
         this.toastr.error(error.error.message, 'Error');
       }
     })
+  }
+
+  public logoutAPI() {
+    this.tokenSubject.next("");
+    this.userDataSubject.next({});
+    this.router.navigate(['login/true']);
   }
 
 }

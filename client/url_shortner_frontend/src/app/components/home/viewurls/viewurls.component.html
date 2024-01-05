@@ -1,0 +1,24 @@
+<div class="viewurls">
+    <h1>Here Is All The Urls That We Have Shortened</h1>
+    <div class="nodata" *ngIf="urlsData?.length == 0">
+        <p>You Did Not Shorten Any Url Yet</p>
+    </div>
+    <div class="allurls">
+        <div class="url" *ngFor="let url of urlsData">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Original URL</th>
+                        <th>UUID</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="column-80"><a href="{{url.url}}">{{url.url}}</a></td>
+                        <td class="column-20">{{url.uuid}}</td>
+                </tbody>
+            </table>
+            
+        </div>
+    </div>
+</div>

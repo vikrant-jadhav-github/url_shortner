@@ -1,0 +1,57 @@
+.viewurls{
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    width: 100%;
+    gap: 2rem;
+}
+
+.viewurls h1{
+    text-align: center;
+}
+
+.allurls{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    height: 79%;
+    overflow-y: scroll;
+}
+
+.url{
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    justify-content: center;
+}
+
+table {
+    background-color: rgb(24, 26, 27);
+    width: 50%;
+    height: 5rem;
+    text-align: center;
+}
+
+tr{
+    height: 2.5rem;
+}
+
+tbody tr{
+    height: 5rem;
+}
+
+.column-80 {
+    width: 80%;
+}
+
+.column-20 {
+    width: 20%;
+}
+
+th, td {
+    border: 1px solid #ddd;
+}
+
+th {
+    background-color: #f2f2f2;
+}

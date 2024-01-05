@@ -1,0 +1,32 @@
+.sidebar{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 3rem;
+    width: 100%;
+    align-items: center;
+    background: blue;
+}
+
+.branding{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+img{
+    width: 70%;
+}
+
+.links{
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+    align-items: center;
+}
+
+a{
+    text-decoration-color: brown;
+    color: white;
+}

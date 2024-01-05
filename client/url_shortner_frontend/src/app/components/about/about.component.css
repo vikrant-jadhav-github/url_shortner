@@ -1,0 +1,15 @@
+.about{
+    display: flex;
+    height: 100vh;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.description{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: space-evenly;
+    line-height: 2.5rem;
+    text-align: justify;
+}

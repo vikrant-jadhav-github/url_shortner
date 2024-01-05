@@ -1,0 +1,15 @@
+.app{
+    grid-template-columns: 1fr 3fr;
+    display: grid;
+    column-gap: 1.2rem;
+    height: 98vh;
+}
+
+.appsidebar{
+    height: 100%;
+    width: 18rem;
+}
+
+.dynamiccontent{
+    height: 100%;
+}

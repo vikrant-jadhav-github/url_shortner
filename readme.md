@@ -1,14 +1,18 @@
 <h1>Project - Url Shortner</h1>
 
+
 <h3>DESCRIPTION</h3>
 <p>I have named this project as a short me i.e short link. From the name itself it is clear that this is the tool to shorten long urls so that one can use it more easily, I have also added the authentication features like one should register in order to access the service and also all urls can be viewed by the individuals. </p>
 
-<h3>TECHNOLOGIES/h3>
+
+<h3>TECHNOLOGIES</h3>
 <p>I have used django for the backend and angular for the frontend, SqlDblite3 which comes as an inbuilt database. </p>
+
 
 <h3>HOW TO START PROJECT LOCALLY</h3>
 <p>Firstly, clone this project via git clone https://github.com/vikrant-jadhav-github/url_shortner.git or download it natively and then run, it is up to you. </p>
 <p>After cloning the project you will see two folders - one is server and another one is client</p>
+
 
 <h4>RUNNING THE SERVER PART</h4>
 <p>I have mentioned the requirements.txt to install all the necessary modules which you would need to run the server<p>
@@ -21,9 +25,11 @@
 <p>You can see server will run on localhost at port 8000. </p>
 <p>Please note that i have used django rest framework to create the backend</p>
 
+
 <h4>RUNNING THE CLIENT PART</h4>
 <p>Firstly, install all the node modules by npm i, if there is an access issue then run sudo npm i. </p>
 <p>Make sure to install node modules after reaching client/url_shortner_frontend then hit npm i. </p>
 <p>Then hit ng serve to run the server, that's it. It will run on localhost at port 4200. </p>
+
 
 <h1>CONGRATULATIONS!, Now you can explore the features </h1>

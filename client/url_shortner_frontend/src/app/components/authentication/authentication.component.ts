@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AccountService } from '../../services/account/account.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 
 @Component({
@@ -12,16 +12,36 @@ export class AuthenticationComponent implements OnInit {
 
   public toggleLogin: boolean = false;
 
-  
-  constructor(private accountService: AccountService, private toastr: ToastrService, private activatedRoute: ActivatedRoute) { } 
+  isValidEmail(email: string): boolean {
+    const emailRegex = /^[^\s@]+@gmail\.com$/;
+    return emailRegex.test(email);
+}
+
+  constructor(private router: Router, private accountService: AccountService, private toastr: ToastrService, private activatedRoute: ActivatedRoute) { } 
   
   ngOnInit(): void {
+    
+    this.accountService.token$.subscribe((token) => {
+      if(token || localStorage.getItem('token')) {
+        this.router.navigate(['home']);
+      }
+    })
+
     this.toggleLogin = this.activatedRoute.snapshot.params['toggle'];
+  
   }
   
   public registerAccount(registeredData: any) {
       if(!registeredData.name || !registeredData.email || !registeredData.password || !registeredData.confirmPassword) {
         this.toastr.error('All fields are required', 'Error');
+        return;
+      }
+      if(!this.isValidEmail(registeredData.email)) {
+        this.toastr.error('Please enter valid email', 'Error');
+        return;
+      }
+      if(registeredData.password != registeredData.confirmPassword) {
+        this.toastr.error('Passwords do not match', 'Error');
         return;
       }
       let data = {

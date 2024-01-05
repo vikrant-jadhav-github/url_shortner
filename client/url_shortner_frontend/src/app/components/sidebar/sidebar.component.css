@@ -6,17 +6,17 @@
     gap: 3rem;
     width: 100%;
     align-items: center;
-    background: blue;
 }
 
 .branding{
     display: flex;
     flex-direction: column;
     align-items: center;
+    gap: 1rem;
 }
 
 img{
-    width: 70%;
+    width: 50%;
 }
 
 .links{
@@ -24,9 +24,4 @@ img{
     flex-direction: column;
     gap: 4rem;
     align-items: center;
-}
-
-a{
-    text-decoration-color: brown;
-    color: white;
 }

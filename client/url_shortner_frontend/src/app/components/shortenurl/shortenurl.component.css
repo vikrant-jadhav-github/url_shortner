@@ -1,10 +1,9 @@
 .shortenurl{
-    color: black;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 100vh;
+    height: 100%;
     gap: 2.5rem;
     font-size: x-large;
 }
@@ -19,7 +18,7 @@
 .shortenlink input{
     width: 33rem;
     padding: 1.2rem;
-    background-color: white;
+    background-color: var(--hover-color);
     border: none;
     outline: none;
 }
@@ -45,10 +44,6 @@
     gap: 1rem;
     justify-content: center;
     align-items: center;
-}
-
-.copylink a{
-    color: black;
 }
 
 .copylink p{

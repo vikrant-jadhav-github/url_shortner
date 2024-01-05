@@ -21,8 +21,6 @@ export class AccountService {
   public registerAccountAPI(registeredData: Object) {
     this.httpClient.post(this.apiService.accountRegisterEndpoint, registeredData).subscribe({
       next: (response: any) => {
-        this.tokenSubject.next(response.token.access);
-        this.userDataSubject.next(response.user);
         this.toastr.success('Account created successfully', 'Success');
         this.router.navigate(['login/true']);
       },
@@ -35,8 +33,13 @@ export class AccountService {
   public loginAccountAPI(loginData: Object) {
     this.httpClient.post(this.apiService.accountLoginEndpoint, loginData).subscribe({
       next: (response: any) => {
+
+        localStorage.setItem('token', response.token.access);
         this.tokenSubject.next(response.token.access);
+        
+        localStorage.setItem('userData', JSON.stringify(response.user));
         this.userDataSubject.next(response.user);
+        
         this.toastr.success('Account logged in successfully', 'Success');
         this.router.navigate(['home']);
       },
@@ -52,6 +55,7 @@ export class AccountService {
   public logoutAPI() {
     this.tokenSubject.next("");
     this.userDataSubject.next({});
+    localStorage.clear();
     this.router.navigate(['login/true']);
   }
 

@@ -15,20 +15,23 @@ export class ViewurlsComponent implements OnInit{
   constructor(private accountService: AccountService, private urlService: UrlService) {}
 
   ngOnInit(): void {
+    
     this.accountService.token$.subscribe((token) => {
       this.token = token;
     })
+    
+    this.token = localStorage.getItem('token') || '';
+
     if(this.token)
     {    
       this.urlService.getAllUrls(this.token).subscribe(
         (response: any) => {
           let data: any = response.data;
           this.urlsData = data;
-          console.warn(this.urlsData);
-          
         }
       )
     }
+
   }
 
 }

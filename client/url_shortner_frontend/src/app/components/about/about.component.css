@@ -1,6 +1,7 @@
 .about{
     display: flex;
-    height: 100vh;
+    height: 100%;
+    width: 95%;
     flex-direction: column;
     justify-content: space-evenly;
 }

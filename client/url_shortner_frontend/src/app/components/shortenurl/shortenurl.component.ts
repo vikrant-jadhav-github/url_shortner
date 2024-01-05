@@ -17,11 +17,17 @@ export class ShortenurlComponent implements OnInit {
   constructor(private urlService: UrlService, private accountService: AccountService, private clipboard: Clipboard, private toastr: ToastrService) {}
 
   public ngOnInit(): void {
+    
     this.accountService.token$.subscribe((token) => {
       if(token) {
         this.token = token
       }
     })
+
+    this.token = localStorage.getItem('token') || '';
+
+    this.shortenedUrl = localStorage.getItem('shortenedUrl') || '';
+
   }
 
   public shortUrl(url: string) {

@@ -1,5 +1,5 @@
 .authentication{
-    height: 100vh;
+    height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -7,6 +7,7 @@
 
 .register{
     display: flex;
+    gap: 2.5rem;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -24,17 +25,20 @@
 
 input{
     padding: 1rem;
-    width: 15rem;
+    width: 30rem;
     text-align: center;
+    border-radius: 2rem;
+    outline: none;
+    border: none;
 }
 
 button{
     width: 17.5rem;
-    padding: 1rem;
 }
 
 .login{
     display: flex;
+    gap: 2.5rem;
     flex-direction: column;
     justify-content: center;
     align-items: center;

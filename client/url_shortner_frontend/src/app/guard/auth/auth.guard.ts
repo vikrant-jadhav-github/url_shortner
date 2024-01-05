@@ -11,8 +11,9 @@ export const authGuard: CanActivateFn = (route, state) => {
   accountService.token$.subscribe((data) => {
     token = data
   })
+  token = localStorage.getItem('token') || '';
   if(token) {
-    return true
+    return true;
   }
   if(!token)
   {

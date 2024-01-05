@@ -12,24 +12,29 @@ export class SidebarComponent implements OnInit {
 
   public toggleLogin: boolean = false
   public userData: any = {}
+  public token: String = "";
 
   constructor(private accountService: AccountService, private toastr: ToastrService) { }
 
   public ngOnInit(): void {
-    this.accountService.token$.subscribe((token) => {
-      if(token) {
-        this.toggleLogin = true
-        this.accountService.userData$.subscribe((userData) => {
-          this.userData = userData
-        })
-      }
+    
+    this.accountService.token$.subscribe((data: String) => {
+        this.token = data
+        if(this.token || localStorage.getItem('token'))
+          this.toggleLogin = true
     })
+
+    this.accountService.userData$.subscribe((data: any) => {
+        this.userData = data
+        let localData: any = JSON.parse(localStorage.getItem('userData') || '{}')
+        this.userData = localData
+    })
+
   }
 
   public logout(){
-    this.toggleLogin = false
-    this.userData = {}
     this.accountService.logoutAPI()
+    this.toggleLogin = false
     this.toastr.success('See you again!', 'Success')
   }
 

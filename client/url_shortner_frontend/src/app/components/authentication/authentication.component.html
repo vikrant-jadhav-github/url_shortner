@@ -16,7 +16,7 @@
         <form method="POST" #loginForm="ngForm" (ngSubmit)="loginAccount(loginForm.value)">
             <input type="email" ngModel name="email" placeholder="Enter Email">
             <input type="password" ngModel name="password" placeholder="Enter Password">
-            <input type="submit" value="Login">
+            <button type="submit">Login</button>
         </form>
     </div>
 

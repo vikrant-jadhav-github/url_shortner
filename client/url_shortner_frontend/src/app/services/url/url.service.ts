@@ -18,7 +18,10 @@ export class UrlService {
 
     this.httpClient.post(this.apiService.storeUrlEndpoint, {url: url}, {headers: {'Authorization': 'Bearer ' + token}}).subscribe({
       next: (response: any) => {
+
+          localStorage.setItem('shortenedUrl', response.url);
           this.shortenedUrlSubject.next(response.url);
+          
           this.toastr.success('Shortened URL created successfully', 'Success');
       },
       error: (error) => {

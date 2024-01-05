@@ -14,12 +14,12 @@
 
     <div *ngIf="toggleLogin" class="links">
         <div class="profile">
-            Welcome {{userData.name}}!
+            <h3>Welcome {{userData?.name}}!</h3>
         </div>
         <a routerLink="/home">Home</a>
         <a routerLink="/home/viewurls">Visited Urls</a>
         <a routerLink="/home/about">About</a>
-        <a (click)="logout()">Logout</a>
+        <a class="logout" (click)="logout()">Logout</a>
     </div>
 
 </div>

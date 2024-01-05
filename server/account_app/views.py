@@ -28,7 +28,7 @@ class RegisterView(APIView):
         if userRegisterSerializer.is_valid():
             savedUser = User.objects.create_user(**data)
             token = getToken(savedUser)
-            return Response({'message': 'User created successfully', 'token': token, 'data': userRegisterSerializer.data}, status=status.HTTP_201_CREATED)
+            return Response({'message': 'User created successfully', 'token': token, 'user': userRegisterSerializer.data}, status=status.HTTP_201_CREATED)
         
 class Login(APIView):
     def post(self, request):
@@ -44,7 +44,7 @@ class Login(APIView):
         if user:
             token = getToken(user)
             userSerializer = UserRegisterSerializer(user)
-            return Response({'token' : token, 'message' : 'User logged in successfully', 'data' : userSerializer.data}, status=status.HTTP_200_OK)
+            return Response({'token' : token, 'message' : 'User logged in successfully', 'user' : userSerializer.data}, status=status.HTTP_200_OK)
         return Response({'message' : 'Invalid credentials, Please check again'}, status=status.HTTP_401_UNAUTHORIZED)
     
             
@@ -54,17 +54,17 @@ class Profile(APIView):
         user = request.user
         userProfile = get_object_or_404(User, pk=user.id)
         userSerializer = UserRegisterSerializer(userProfile)
-        return Response({'message': 'User fetched successfully', 'data': userSerializer.data}, status=status.HTTP_200_OK)
+        return Response({'message': 'User fetched successfully', 'user': userSerializer.data}, status=status.HTTP_200_OK)
     
     def delete(self, request):
         user = request.user
         deletedUser = user.delete()
-        return Response({'message' : 'User deleted successfully', 'data': deletedUser}, status=status.HTTP_200_OK)
+        return Response({'message' : 'User deleted successfully', 'user': deletedUser}, status=status.HTTP_200_OK)
     
     def put(self, request):
         user = request.user
         userSerializer = UserRegisterSerializer(user, data=request.data, partial=True)
         if userSerializer.is_valid():
             userSerializer.save()
-            return Response({'message': 'User updated successfully', 'data': userSerializer.data}, status=status.HTTP_200_OK)
+            return Response({'message': 'User updated successfully', 'user': userSerializer.data}, status=status.HTTP_200_OK)
         return Response({'message': 'User update failed'}, status=status.HTTP_400_BAD_REQUEST)

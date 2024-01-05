@@ -39,7 +39,7 @@ class Login(APIView):
         try:
             account = get_object_or_404(User, email=email)
         except:
-            return Response({'message' : 'Please register first'}, status=status.HTTP_201_CREATED)
+            return Response({'message' : 'Please register first'}, status=status.HTTP_404_NOT_FOUND)
         user = authenticate(email=email, password=password)
         if user:
             token = getToken(user)

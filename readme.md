@@ -30,7 +30,7 @@ After cloning the project you will see two folders - one is server and another o
 I have mentioned the requirements.txt to install all the necessary modules which you would need to run the server.
 </li>
 <li>
-Run pip install -r requirements.txt to install all the modules in one go, if you get some issues for some modules then you can install individually as well.
+Run pip install -r requirements.txt to install all the modules in one go, if you get some issues for some modules then you can install individually as well. (make sure to use pip3 or pip according to your version)
 </li>
 <li>
 After installing modules, run this commands step by step
@@ -43,9 +43,6 @@ python3 manage.py migrate to make actually changes in the db.
 </li>
 <li>
 One can create the super user if want, to create that - python3 manage.py createsuperuser. (This is not mandatory step just if you want to use the admin panel then run this).
-</li>
-<li>
-Finally, run the server by hitting - python3 manage.py runserver.
 </li>
 <li>
 Finally, run the server by hitting - python3 manage.py runserver.

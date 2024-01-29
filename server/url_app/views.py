@@ -49,7 +49,7 @@ class UrlShortnerView(APIView):
 
         urlModelSerializer = UrlModelSerializer(data=data)
 
-        if urlModelSerializer.is_valid():
+        if urlModelSerializer.is_valid(raise_exception=True):
             urlModelSerializer.save()
             newUrl = 'http://localhost:8000/api/v1/urls/' + genUuid
             return Response({'message': 'URL Shortened Successfully', 'url': newUrl}, status=status.HTTP_201_CREATED)

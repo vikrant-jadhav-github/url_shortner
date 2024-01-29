@@ -25,10 +25,15 @@ class RegisterView(APIView):
             'avatar': "https://api.dicebear.com/6.x/pixel-art/svg?seed=" + userData['name'],
         }
         userRegisterSerializer = UserRegisterSerializer(data=data)
-        if userRegisterSerializer.is_valid():
-            savedUser = User.objects.create_user(**data)
-            token = getToken(savedUser)
-            return Response({'message': 'User created successfully', 'token': token, 'user': userRegisterSerializer.data}, status=status.HTTP_201_CREATED)
+        try:
+            if userRegisterSerializer.is_valid():
+                savedUser = User.objects.create_user(**data)
+                token = getToken(savedUser)
+                return Response({'message': 'User created successfully', 'token': token, 'user': userRegisterSerializer.data}, status=status.HTTP_201_CREATED)
+            else:
+                raise Exception("ajksdf;klajsf")
+        except Exception as e:
+            print("MEssage", e)
         
 class Login(APIView):
     def post(self, request):
